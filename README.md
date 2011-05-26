@@ -12,6 +12,17 @@
  * nik2img.py - optionally for easy rendering via command line (http://trac.mapnik.org/wiki/Nik2Img)
 
 
+## TODO
+
+ * Track down the cause of this warning:
+
+```
+ERROR 1: FetchNextRowsSpatialFilter() failed : not_found, missing handler: _spatial
+```
+
+ * Add support for geocouch (which will likely remove the above warning)
+
+
 ## Usage
 
 Create a couch document for a given shapefile:

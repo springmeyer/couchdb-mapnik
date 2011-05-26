@@ -1,16 +1,51 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Map srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs" background-color="rgb(255,255,255)">
-    <Style name="p">
+<?xml version="1.0"?>
+
+<!-- An ultra simple Mapnik stylesheet -->
+
+<!DOCTYPE Map [
+<!ENTITY google_mercator "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+]>
+
+<Map srs="&google_mercator;" background-color="white">
+    <Style name="glow">
         <Rule>
-            <PolygonSymbolizer/>
+            <Filter>
+            <![CDATA[
+              [POP2005] > 20000000
+            ]]>
+            </Filter>
+            <LineSymbolizer stroke-width="2" stroke="darkgrey"/>
+        </Rule>
+        <Rule>
+            <Filter>
+            <![CDATA[
+              [POP2005] < 20000000
+            ]]>
+            </Filter>
+            <LineSymbolizer stroke-width=".5" stroke="lightblue"/>
         </Rule>
     </Style>
-    <Layer name="p" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs">
-        <StyleName>p</StyleName>
+    <Style name="fill">
+        <Rule>
+            <PolygonSymbolizer gamma="0.7" fill="grey"/>
+        </Rule>
+    </Style>
+    <Style name="label">
+        <Rule>
+            <!-- just label bigger countries -->
+            <Filter>[POP2005] > 20000000</Filter>
+            <TextSymbolizer name="[NAME]" face-name="DejaVu Sans Book" 
+                fill="white" halo-radius="2" halo-fill="rgba(0,0,0,.7)" placement="interior"/>
+        </Rule>
+    </Style>
+    <Layer name="layer" srs="&google_mercator;">
+        <StyleName>glow</StyleName>
+        <StyleName>fill</StyleName>
+        <StyleName>label</StyleName>
         <Datasource>
             <Parameter name="type">ogr</Parameter>
-            <Parameter name="string">couchdb:http://127.0.0.1:5984/world_merc</Parameter>
-            <Parameter name="layer_by_index">0</Parameter>
+            <Parameter name="string">couchdb:http://127.0.0.1:5984/</Parameter>
+            <Parameter name="layer">world_merc</Parameter>
         </Datasource>
     </Layer>
 </Map>

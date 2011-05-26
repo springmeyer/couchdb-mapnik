@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Map srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs" background-color="rgb(255,255,255)">
+    <Style name="p">
+        <Rule>
+            <PolygonSymbolizer/>
+        </Rule>
+    </Style>
+    <Layer name="p" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs">
+        <StyleName>p</StyleName>
+        <Datasource>
+            <Parameter name="type">ogr</Parameter>
+            <Parameter name="string">couchdb:http://127.0.0.1:5984/world_merc</Parameter>
+            <Parameter name="layer_by_index">0</Parameter>
+        </Datasource>
+    </Layer>
+</Map>

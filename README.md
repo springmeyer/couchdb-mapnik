@@ -7,9 +7,9 @@
  
  * GDAL trunk (>= 1.9.0) with couch support (http://www.gdal.org/ogr/drv_couchdb.html)
 
- * Mapnik trunk (>= 2.0.0) with GDAL/OGR plugin
+ * Mapnik trunk (>= 2.0.0) with OGR plugin (http://trac.mapnik.org/wiki/OGR)
  
- * nik2img.py (just to render via commandline)
+ * nik2img.py - optionally for easy rendering via command line (http://trac.mapnik.org/wiki/Nik2Img)
 
 
 ## Usage
@@ -70,3 +70,8 @@ Then try rendering with nik2img:
     
     # then render
     nik2img.py couchmap.xml world.png
+
+
+# Thanks
+
+[Even](http://even.rouault.free.fr/) is the humble but brilliant fellow you added couch support to OGR virtually overnight.

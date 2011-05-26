@@ -74,4 +74,4 @@ Then try rendering with nik2img:
 
 # Thanks
 
-[Even](http://even.rouault.free.fr/) is the humble but brilliant fellow you added couch support to OGR virtually overnight.
+[Even](http://even.rouault.free.fr/) is the humble but brilliant fellow who added couch support to OGR virtually overnight.
